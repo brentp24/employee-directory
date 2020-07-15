@@ -8,13 +8,6 @@ export default {
     
     searchRandomUser: function() {
         return axios.get(APIURL)
-        .then(res => {
-            const employees = res.data;
-            return employees.map(employee => {
-                return {
-                   employeeName: employee.name.first,   
-                }
-            })
-        })
+        
     }
 }

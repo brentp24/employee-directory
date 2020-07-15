@@ -19,7 +19,7 @@ function Table(props) {
         <td>{item.name}</td>
         <td>{item.phone}</td>
         <td>{item.email}</td>
-        <td>{item.DOB}</td>
+        <td>{item.dob}</td>
     </tr>
     ))}
   </table>
