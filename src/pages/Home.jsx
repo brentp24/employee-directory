@@ -43,11 +43,19 @@ class Home extends Component {
     event.preventDefault();
     API.searchRandomUser(this.state.search)
       .then(res => {
+        let employees = res.data.results;
+        // Reduce   instead of filter. 
+        const searchResults = employees.filter(emp => 
+          emp.name.first === this.state.search
+       )
         if (res.data.status === "error") {
           throw new Error(res.data.message);
         }
-        this.setState({ results: res.data.message, error: "" });
-        console.log(this.state);
+        //this.setState({ results: res.data.message, error: "" });
+        console.log(searchResults);
+        let newState = { employees: searchResults };
+        this.setState(newState);
+        // this.setState({searchResults})
       })
       .catch(err => this.setState({ error: err.message }));
   };
