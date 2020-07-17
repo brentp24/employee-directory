@@ -2,3 +2,30 @@
   min-height: 100%;
   padding-bottom: 100px;
 }
+
+.btn-dark {
+ color: white;
+ border: 0;
+ font-weight: bold;
+ padding: 5px
+
+}
+
+.sort-by {
+	border: 4px solid transparent;
+	content: "";
+	display: block;
+	height: 0;
+	right: 5px;
+	top: 50%;
+	position: absolute;
+	width: 0;
+}
+a.sort-by:before {
+	border-bottom-color:white;
+	margin-top: -9px;
+}
+a.sort-by:after {
+	border-top-color: white;
+	margin-top: 1px;
+}
