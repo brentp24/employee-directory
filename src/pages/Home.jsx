@@ -29,14 +29,10 @@ class Home extends Component {
         }))
         let newState = { shown, employees };
         this.setState(newState);
-         console.log(newState);
-        // console.log(newState);
       })
-      // console.log(this.state.employees);
   }
 
   componentDidMount() {
-    // eslint-disable-next-line no-undef
     this.loadEmployees();
   }
 
@@ -49,7 +45,6 @@ class Home extends Component {
     let employees = this.state.employees;
     const shown = employees
     .filter(emp =>
-      // emp.name.first === this.state.search
       (emp.name.first +" " + emp.name.last).includes(this.state.search)
     )
     .map(emp => ({
@@ -61,11 +56,8 @@ class Home extends Component {
       email: emp.email,
       dob: emp.dob.date
     }))
-
     let newState = { shown, employees };
-    console.log(this.state.search);
     this.setState(newState);
-    console.log(newState);
   };
 
   render() {
