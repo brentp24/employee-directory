@@ -6,30 +6,30 @@ import "./style.css";
 function NavBar() {
     return (
         <nav className="navbar navbar-expand-md bg-light">
-            <Link className="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2" to="/">
+            {/* <Link className="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2" to="/">
                 Big Company
-            </Link>
+            </Link> */}
             <div>
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item">
-                        <Link
+                        {/* <Link
                             to="/"
                             className={window.location.pathname === "../../../public/index.html" ? "nav-link active" : "nav-link"}
                         >
                             Directory
-                        </Link>
+                        </Link> */}
                     </li>
                 </ul>
                 </div>
                 <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item">
-                        <Link
+                        {/* <Link
                             to="/login"
                             className={window.location.pathname === "../../pages/Login.js" ? "nav-link active" : "nav-link"}
                         >
                             Login
-                        </Link>
+                        </Link> */}
                     </li>
                 </ul>
 
