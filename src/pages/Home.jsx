@@ -4,20 +4,21 @@ import Table from "../components/Table";
 import SearchForm from "../components/SearchForm"
 import Container from "../components/Container"
 
-
-
 class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      employees: []
+      employees: [],
+      searchResults: [],
+      shown: []
     };
   }
   loadEmployees = () => {
-    API.searchRandomUser()
+    API.getDirectory()
       .then(res => {
         let employees = res.data.results;
-        employees = employees.map(emp => ({
+        let shown = []
+        shown = employees.map(emp => ({
           id: emp.id.value,
           image: emp.picture.medium,
           name: emp.name.first + " " + emp.name.last,
@@ -25,9 +26,12 @@ class Home extends Component {
           email: emp.email,
           dob: emp.dob.date
         }))
-        let newState = { employees };
+        let newState = { shown, employees };
         this.setState(newState);
+         console.log(newState);
+        // console.log(newState);
       })
+      // console.log(this.state.employees);
   }
 
   componentDidMount() {
@@ -41,23 +45,25 @@ class Home extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    API.searchRandomUser(this.state.search)
-      .then(res => {
-        let employees = res.data.results;
-        // Reduce   instead of filter. 
-        const searchResults = employees.filter(emp => 
-          emp.name.first === this.state.search
-       )
-        if (res.data.status === "error") {
-          throw new Error(res.data.message);
-        }
-        //this.setState({ results: res.data.message, error: "" });
-        console.log(searchResults);
-        let newState = { employees: searchResults };
-        this.setState(newState);
-        // this.setState({searchResults})
-      })
-      .catch(err => this.setState({ error: err.message }));
+    let employees = this.state.employees;
+    const shown = employees
+    .filter(emp =>
+      // emp.name.first === this.state.search
+      (emp.name.first +" " + emp.name.last).includes(this.state.search)
+    )
+    .map(emp => ({
+      id: emp.id.value,
+      image: emp.picture.medium,
+      name: emp.name.first + " " + emp.name.last,
+      phone: emp.phone,
+      email: emp.email,
+      dob: emp.dob.date
+    }))
+
+    let newState = { shown, employees };
+    console.log(this.state.search);
+    this.setState(newState);
+    console.log(newState);
   };
 
   render() {
@@ -69,7 +75,7 @@ class Home extends Component {
             handleFormSubmit={this.handleFormSubmit}
             handleInputChange={this.handleInputChange}
           />
-          <Table employees={this.state.employees}>
+          <Table shown={this.state.shown}>
           </Table>
         </Container>
       </div>

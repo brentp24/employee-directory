@@ -15,9 +15,9 @@ function Table(props) {
         </tr>
       </thead>
       <tbody>
-        {props.employees.map(item => (
+        {props.shown.map(item => (
           <tr key={item.id}>
-            <td><img src={item.image} alt={item.name} /> </td>
+            <td><img src={item.image} alt={item.first} /> </td>
             <td>{item.name}</td>
             <td>{item.phone}</td>
             <td>{item.email}</td>
