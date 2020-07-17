@@ -29,10 +29,13 @@ class Home extends Component {
         }))
         let newState = { shown, employees };
         this.setState(newState);
+
       })
+
   }
 
   componentDidMount() {
+
     this.loadEmployees();
   }
 
@@ -45,7 +48,7 @@ class Home extends Component {
     let employees = this.state.employees;
     const shown = employees
     .filter(emp =>
-      (emp.name.first +" " + emp.name.last).toLowerCase().includes(this.state.search.toLowerCase())
+      (emp.name.first +" " + emp.name.last).includes(this.state.search)
     )
     .map(emp => ({
       id: emp.id.value,
