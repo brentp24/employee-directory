@@ -21,7 +21,8 @@ class Home extends Component {
         shown = employees.map(emp => ({
           id: emp.id.value,
           image: emp.picture.medium,
-          name: emp.name.first + " " + emp.name.last,
+          firstName: emp.name.first,
+          lastName: emp.name.last,
           phone: emp.phone,
           email: emp.email,
           dob: emp.dob.date
@@ -54,7 +55,8 @@ class Home extends Component {
     .map(emp => ({
       id: emp.id.value,
       image: emp.picture.medium,
-      name: emp.name.first + " " + emp.name.last,
+      firstName: emp.name.first,
+      lastName: emp.name.last,
       phone: emp.phone,
       email: emp.email,
       dob: emp.dob.date
