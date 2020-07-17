@@ -41,6 +41,7 @@ class Home extends Component {
 
   handleInputChange = event => {
     this.setState({ search: event.target.value });
+    
   };
 
   handleFormSubmit = event => {
@@ -48,7 +49,7 @@ class Home extends Component {
     let employees = this.state.employees;
     const shown = employees
     .filter(emp =>
-      (emp.name.first +" " + emp.name.last).includes(this.state.search)
+      (emp.name.first +" " + emp.name.last).toLowerCase().includes(this.state.search.toLowerCase())
     )
     .map(emp => ({
       id: emp.id.value,
