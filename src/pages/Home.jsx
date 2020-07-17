@@ -29,27 +29,20 @@ class Home extends Component {
         }))
         let newState = { shown, employees };
         this.setState(newState);
-
       })
-
   }
 
   componentDidMount() {
-
     this.loadEmployees();
   }
 
   handleInputChange = event => {
-    this.setState({ search: event.target.value });
-    
-  };
-
-  handleFormSubmit = event => {
+    const search = event.target.value
     event.preventDefault();
     let employees = this.state.employees;
     const shown = employees
     .filter(emp =>
-      (emp.name.first +" " + emp.name.last).toLowerCase().includes(this.state.search.toLowerCase())
+      (emp.name.first +" " + emp.name.last).toLowerCase().includes(search.toLowerCase())
     )
     .map(emp => ({
       id: emp.id.value,
@@ -62,7 +55,28 @@ class Home extends Component {
     }))
     let newState = { shown, employees };
     this.setState(newState);
+    
   };
+
+  // handleFormSubmit = event => {
+  //   event.preventDefault();
+  //   let employees = this.state.employees;
+  //   const shown = employees
+  //   .filter(emp =>
+  //     (emp.name.first +" " + emp.name.last).toLowerCase().includes(this.state.search.toLowerCase())
+  //   )
+  //   .map(emp => ({
+  //     id: emp.id.value,
+  //     image: emp.picture.medium,
+  //     firstName: emp.name.first,
+  //     lastName: emp.name.last,
+  //     phone: emp.phone,
+  //     email: emp.email,
+  //     dob: emp.dob.date
+  //   }))
+  //   let newState = { shown, employees };
+  //   this.setState(newState);
+  // };
 
   render() {
     return (
@@ -70,8 +84,9 @@ class Home extends Component {
         <h1 className="text-center">Find your colleagues</h1>
         <Container style={{ minHeight: "80%" }}>
           <SearchForm
-            handleFormSubmit={this.handleFormSubmit}
+            // handleFormSubmit={this.handleFormSubmit}
             handleInputChange={this.handleInputChange}
+          
           />
           <Table shown={this.state.shown}>
           </Table>

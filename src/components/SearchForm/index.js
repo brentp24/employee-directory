@@ -22,9 +22,9 @@ function SearchForm(props) {
             <option value={employee} key={employee} />
           ))}
         </datalist> */}
-        <button type="submit" onClick={props.handleFormSubmit} className="btn btn-success">
+        {/* <button type="submit" onClick={props.handleFormSubmit} className="btn btn-success">
           Search
-        </button>
+        </button> */}
       </div>
     </form>
   );
