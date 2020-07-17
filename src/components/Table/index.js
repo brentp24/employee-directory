@@ -37,7 +37,7 @@ const useSortableData = (items, config = null) => {
 };
 
 function Table(props) {
-  const { items, requestSort} = useSortableData(props.shown);
+  const { items, requestSort } = useSortableData(props.shown);
   return (
     <table className="table is-fullwidth">
       <thead className="thead-dark">
@@ -45,14 +45,14 @@ function Table(props) {
           <th>Image</th>
           <th>
             <button type="button" onClick={() => requestSort('firstName')}
-               className="btn-dark fa fa-fw fa-sort"
+              className="btn-dark fa fa-sort"
             >
-                First
+              First
             </button>
           </th>
           <th>
             <button type="button" onClick={() => requestSort('lastName')}
-              className="btn-dark fa fa-fw fa-sort">
+              className="btn-dark fa fa-sort">
               Last
             </button>
           </th>
@@ -60,7 +60,7 @@ function Table(props) {
           <th>Email</th>
           <th>
             <button type="button" onClick={() => requestSort('dob')}
-              className="btn-dark fa fa-fw fa-sort">
+              className="btn-dark fa fa-sort">
               DOB
             </button>
           </th>
