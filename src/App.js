@@ -5,19 +5,23 @@ import Login from "./pages/Login";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
+import Container from "./components/Container";
 
 function App() {
   return (
-    <Router>
-      <div>
-        <NavBar />
-        <Wrapper>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/login" component={Login} />
-        </Wrapper>
-        <Footer />
-      </div>
-    </Router>
+
+      <Router>
+        <div>
+          <NavBar />
+          <Wrapper>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/login" component={Login} />
+          </Wrapper>
+          <Home />
+          <Footer />
+        </div>
+      </Router>
+
   );
 }
 
